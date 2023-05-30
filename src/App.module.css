@@ -1,0 +1,34 @@
+.wrapper {
+    /*
+    max-width de 70 rem equivale a 70 * 16 = 1120px conforme figma
+    margin: o auto para esquerda e direita, deixa centralizado na tela o wrapper
+    padding: 0 1 rem faz com que caso a tela seja diminuída para menor que 70rem, garante um espaço
+    
+    grid-template-columns garante que a primeira coluna tenha uma largura fixa de 256 e a segunda se ajuste a tela
+    gap: espaçamento entre as colunas
+    align-items flex-start deixa alinhada com o topo e com altura fixa, caso contrário tenta esticar as duas colunas para ter a mesma altura, senão o padrão fica strecht
+    */
+    max-width: 70rem;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+    display: grid;
+    grid-template-columns: 256px 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/*
+como todas medidas são relativas com rem, pode-se redimensionar para mobile a partir da percentagem e adaptar automaticamente caso o usuário modifique o valor de referência do navegador
+quando visualizado em uma tela menor que 768 px, aplica-se a regra em que ao invés de utilizar duas colunas, utilziza-se apenas 1 com 1fr
+*/
+@media (max-width: 768px) {
+
+    html {
+        font-size: 87.5%;
+    }
+
+    .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
